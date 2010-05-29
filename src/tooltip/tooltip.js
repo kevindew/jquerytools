@@ -141,6 +141,7 @@
 		trigger.bind(evt[0], function(e) {
 			clearTimeout(timer);
 			if (conf.predelay) {
+				clearTimeout(pretimer);
 				pretimer = setTimeout(function() { self.show(e); }, conf.predelay);	
 				
 			} else {
@@ -151,6 +152,7 @@
 		}).bind(evt[1], function(e)  {
 			clearTimeout(pretimer);
 			if (conf.delay)  {
+				clearTimeout(timer);
 				timer = setTimeout(function() { self.hide(e); }, conf.delay);	
 				
 			} else {
